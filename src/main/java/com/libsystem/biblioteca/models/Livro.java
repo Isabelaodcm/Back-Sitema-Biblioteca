@@ -1,7 +1,6 @@
 package com.libsystem.biblioteca.models;
 
-import com.libsystem.biblioteca.dtos.AutorDto;
-
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -9,6 +8,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
+@Entity
 public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,13 +21,13 @@ public class Livro {
 	private String obs;
 	private String estadoCons;
 	
-	@ManyToMany
-	@JoinColumn(name = "autor_id")
+//	@ManyToMany
+	@JoinColumn(name = "autor_nome")
 	private Autor autor;
 	
-	@OneToMany
-	@JoinColumn(name = "editora_id")
-	private Editora editora;
+//	@OneToMany
+//	@JoinColumn(name = "editora_id")
+//	private Editora editora;
 
 	public Long getId() {
 		return id;
@@ -93,21 +93,21 @@ public class Livro {
 		this.estadoCons = estadoCons;
 	}
 
-	public AutorDto getAutor() {
+	public Autor getAutor() {
 		return autor;
 	}
 
 	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
-
-	public Editora getEditora() {
-		return editora;
-	}
-
-	public void setEditora(Editora editora) {
-		this.editora = editora;
-	}
-	
+//
+//	public Editora getEditora() {
+//		return editora;
+//	}
+//
+//	public void setEditora(Editora editora) {
+//		this.editora = editora;
+//	}
+//	
 	
 }

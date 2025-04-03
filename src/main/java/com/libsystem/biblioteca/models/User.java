@@ -1,16 +1,20 @@
 package com.libsystem.biblioteca.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
+@Entity
 public class User extends Pessoa{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String senha;
 	
-	private Pessoa pessoa;
+//	private Pessoa pessoa;
 
 	public Long getId() {
 		return id;
@@ -28,13 +32,13 @@ public class User extends Pessoa{
 		this.senha = senha;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
-	}
-	
+//	public Pessoa getPessoa() {
+//		return pessoa;
+//	}
+//
+//	public void setPessoa(Pessoa pessoa) {
+//		this.pessoa = pessoa;
+//	}
+//	
 	
 }

@@ -13,8 +13,8 @@ public class LivroDto {
 	public LivroDto(Livro livro) {
 		this.titulo = livro.getTitulo();
 		this.anoPublicacao = livro.getAnoPublicacao();
-		this.autor = new AutorDto(livro.getAutor());  // Convertendo Autor para AutorDto
-        this.editora = new EditoraDto(livro.getEditora()); // Convertendo Editora para EditoraDto
+//		this.autor = new AutorDto(livro.getAutor());  // Convertendo Autor para AutorDto
+//        this.editora = new EditoraDto(livro.getEditora()); // Convertendo Editora para EditoraDto
 		this.status = livro.getStatus();
 		this.edicao = livro.getEdicao();
 		
