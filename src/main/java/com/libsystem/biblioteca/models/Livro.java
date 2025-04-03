@@ -1,5 +1,7 @@
 package com.libsystem.biblioteca.models;
 
+import com.libsystem.biblioteca.dtos.AutorDto;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,7 +17,7 @@ public class Livro {
 	private String anoPublicacao;
 	private String isbn;
 	private Integer edicao;
-	private Boolean status;
+	private String status;
 	private String obs;
 	private String estadoCons;
 	
@@ -67,11 +69,11 @@ public class Livro {
 		this.edicao = edicao;
 	}
 
-	public Boolean getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Boolean status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
@@ -91,7 +93,7 @@ public class Livro {
 		this.estadoCons = estadoCons;
 	}
 
-	public Autor getAutor() {
+	public AutorDto getAutor() {
 		return autor;
 	}
 

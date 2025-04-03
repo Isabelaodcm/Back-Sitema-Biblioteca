@@ -12,6 +12,7 @@ public class Editora {
 	private String  rua;
 	private Integer numero;
 	private String cidade;
+	private String pais;
 	private String cep;
 	private String bairro; 
 	private Integer livrosCad;
@@ -19,6 +20,14 @@ public class Editora {
 	public Editora() {
 	}
 	
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
 	public Long getId() {
 		return id;
 	}
