@@ -1,6 +1,5 @@
 package com.libsystem.biblioteca.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.libsystem.biblioteca.dtos.LivroDto;
+import com.libsystem.biblioteca.mappers.LivroMapper;
 import com.libsystem.biblioteca.models.Livro;
 import com.libsystem.biblioteca.repositories.LivroRepository;
 
@@ -20,21 +21,23 @@ public class LivroController {
 	@Autowired
 	private LivroRepository repository;
 	
-	@GetMapping(value = "/listar-todos")
-	public ResponseEntity<List<Livro>> listaLivros() {
-		
-//		Livro livro1 = new Livro();
-//		livro1.setId(new Long(1));
-//		livro1.setTitulo("Senhor dos Anéis");
-//		livro1.setStatus("vendido");
+	@Autowired
+	private LivroMapper mapper;
+	
+//	@GetMapping(value = "/listar-todos")
+//	public ResponseEntity<List<LivroDto>> listaLivros(){
+//		List<LivroDto> = Livrorepository.findAll();
 //		
-//		List<Livro> livros = new ArrayList<>() ;
-//		livros.add(livro1);
-//			
+//		return ResponseEntity.ok(livros);
+//	}
+	
+	@GetMapping(value = "/listar-todos")
+	public ResponseEntity<List<LivroDto>> listaLivros() {	
 		
 		List<Livro> livros = repository.findAll(); 
+		List<LivroDto> livrosDto = mapper.paraDto(livros);
 		
-		return ResponseEntity.ok(livros);
+		return ResponseEntity.ok(livrosDto);
 	}
 	
 	@GetMapping("/busca-livro/{id}")

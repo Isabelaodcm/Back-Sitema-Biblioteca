@@ -17,7 +17,7 @@ public class LivroDto {
 //        this.editora = new EditoraDto(livro.getEditora()); // Convertendo Editora para EditoraDto
 		this.status = livro.getStatus();
 		this.edicao = livro.getEdicao();
-		
+
 	}
 	
 	public String getTitulo() {
