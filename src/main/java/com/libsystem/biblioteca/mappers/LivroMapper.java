@@ -5,10 +5,11 @@ import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import com.libsystem.biblioteca.dtos.LivroDetalhadoDto;
 import com.libsystem.biblioteca.dtos.LivroDto;
 import com.libsystem.biblioteca.models.Livro;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel="spring")
 public interface LivroMapper {
 
     LivroMapper INSTANCE = Mappers.getMapper(LivroMapper.class);
@@ -17,4 +18,7 @@ public interface LivroMapper {
     Livro paraLivro(LivroDto livroDto);
 
     List<LivroDto> paraDto(List<Livro> livros);
+    
+    LivroDetalhadoDto paraDDto (Livro livro);
+    Livro dParaLivro(LivroDetalhadoDto livroDetalhadoDto);
 }	

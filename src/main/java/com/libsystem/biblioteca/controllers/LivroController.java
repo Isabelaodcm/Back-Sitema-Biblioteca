@@ -9,41 +9,43 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.libsystem.biblioteca.dtos.LivroDetalhadoDto;
+import com.libsystem.biblioteca.dtos.LivroDto;
 import com.libsystem.biblioteca.models.Livro;
-import com.libsystem.biblioteca.repositories.LivroRepository;
+import com.libsystem.biblioteca.services.impl.LivroServiceImpl;
 
 @RequestMapping(value = "/livro")
 @RestController
 public class LivroController {
 	
-	//@Autowired
 	@Autowired
-	private LivroRepository repository;
+	private LivroServiceImpl service ;
 	
-//	@Autowired
-//	private LivroMapper mapper;
 	
-	@GetMapping(value = "/cadastro")
-	public ResponseEntity<List<Livro>> listaLivros(){
-		List<Livro> livro = repository.findAll();
+	@GetMapping(value = "/lista-livros")
+	public ResponseEntity<List<LivroDto>> listaLivros(){
+		return service.listarLivros();
+	}
 		
-		return ResponseEntity.ok(livro);
+	@GetMapping(value = "/busca-livro/{id}")
+	public LivroDto findById(@PathVariable Long id) {
+		return service.findById(id);
+		
 	}
 	
-//	@GetMapping(value = "/listar-todos")
-//	public ResponseEntity<List<LivroDto>> listaLivros() {	
-//		
-//		List<Livro> livros = repository.findAll(); 
-//		List<LivroDto> livrosDto = mapper.paraDto(livros);
-//		
-//		return ResponseEntity.ok(livrosDto);
-//	}
-//	
-	@GetMapping("/busca-livro/{id}")
-	public Livro buscaPorId(@PathVariable Long id) {
-		
-		return repository.findById(id).get();
-		
+	@GetMapping(value = "/excluir/{id}")
+	public String deleteById(@PathVariable Long id) {
+		return service.deleteById(id);
+	}
+	
+	@GetMapping(value = "/detalhes/{id}")
+	public LivroDetalhadoDto detalhesLivro(@PathVariable Long id) {
+		return service.detalhesLivro(id);
+	}
+
+	@GetMapping(value = "/cadastrar-livro")
+	public LivroDetalhadoDto create(Livro livro) {
+		return service.create(livro);
 	}
 	
 	

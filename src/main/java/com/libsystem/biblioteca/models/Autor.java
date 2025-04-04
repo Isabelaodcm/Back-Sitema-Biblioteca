@@ -16,7 +16,16 @@ public class Autor {
 	private String pais; 
 	private String anoNasc;
 	private String anoFalesc;
+	private Integer livrosCad;
 	
+	public Integer getLivrosCad() {
+		return livrosCad;
+	}
+
+	public void setLivrosCad(Integer livrosCad) {
+		this.livrosCad = livrosCad;
+	}
+
 	public Autor() {
 	}
 	
