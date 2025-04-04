@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.libsystem.biblioteca.dtos.LivroDto;
-import com.libsystem.biblioteca.mappers.LivroMapper;
 import com.libsystem.biblioteca.models.Livro;
 import com.libsystem.biblioteca.repositories.LivroRepository;
 
@@ -18,28 +16,29 @@ import com.libsystem.biblioteca.repositories.LivroRepository;
 @RestController
 public class LivroController {
 	
+	//@Autowired
 	@Autowired
 	private LivroRepository repository;
 	
-	@Autowired
-	private LivroMapper mapper;
+//	@Autowired
+//	private LivroMapper mapper;
 	
-//	@GetMapping(value = "/listar-todos")
-//	public ResponseEntity<List<LivroDto>> listaLivros(){
-//		List<LivroDto> = Livrorepository.findAll();
-//		
-//		return ResponseEntity.ok(livros);
-//	}
-	
-	@GetMapping(value = "/listar-todos")
-	public ResponseEntity<List<LivroDto>> listaLivros() {	
+	@GetMapping(value = "/cadastro")
+	public ResponseEntity<List<Livro>> listaLivros(){
+		List<Livro> livro = repository.findAll();
 		
-		List<Livro> livros = repository.findAll(); 
-		List<LivroDto> livrosDto = mapper.paraDto(livros);
-		
-		return ResponseEntity.ok(livrosDto);
+		return ResponseEntity.ok(livro);
 	}
 	
+//	@GetMapping(value = "/listar-todos")
+//	public ResponseEntity<List<LivroDto>> listaLivros() {	
+//		
+//		List<Livro> livros = repository.findAll(); 
+//		List<LivroDto> livrosDto = mapper.paraDto(livros);
+//		
+//		return ResponseEntity.ok(livrosDto);
+//	}
+//	
 	@GetMapping("/busca-livro/{id}")
 	public Livro buscaPorId(@PathVariable Long id) {
 		
