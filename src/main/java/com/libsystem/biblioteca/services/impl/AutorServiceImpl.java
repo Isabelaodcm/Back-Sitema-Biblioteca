@@ -34,4 +34,26 @@ public class AutorServiceImpl implements AutorService {
 		repository.deleteById(id);
 		return "Autor excluído com sucesso.";
 	}
+	
+	@Override
+	public Autor create(Autor autor) {
+		Autor newAutor = repository.save(autor);
+		return newAutor;
+	}
+	
+	@Override
+	public Autor update(@PathVariable Long id, Autor editarAutor) {
+		Autor autorEditado = repository.findById(id).get();
+		
+		autorEditado.setNome(editarAutor.getNome());
+		autorEditado.setAnoFalesc(editarAutor.getAnoFalesc());
+		autorEditado.setAnoNasc(editarAutor.getAnoNasc());
+		autorEditado.setCidade(editarAutor.getCidade());
+		autorEditado.setPais(editarAutor.getPais());
+		
+		repository.save(autorEditado);
+		
+		return autorEditado;
+	}
+
 }

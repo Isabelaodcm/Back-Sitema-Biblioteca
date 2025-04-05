@@ -11,7 +11,7 @@ public interface AutorService {
 	ResponseEntity<List<Autor>> listarAutores();
 	Autor findById(@PathVariable Long id);
 	String deleteById(@PathVariable Long id);
-//	Autor create(Autor autor);
-//	Autor update(@PathVariable Long id, Autor editarAutor);
+	Autor create(Autor autor);
+	Autor update(@PathVariable Long id, Autor editarAutor);
 	
 }
