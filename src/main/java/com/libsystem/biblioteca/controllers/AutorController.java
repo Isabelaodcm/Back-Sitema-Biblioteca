@@ -35,7 +35,7 @@ public class AutorController {
 		return service.deleteById(id);
 	}
 	
-	@GetMapping(value = "/editar-autor/{id}")
+	@GetMapping(value = "/editar/{id}")
 	public ResponseEntity<Autor> update(@PathVariable Long id, @RequestBody Autor editarAutor) {
 		return ResponseEntity.ok(service.update(id, editarAutor));
 

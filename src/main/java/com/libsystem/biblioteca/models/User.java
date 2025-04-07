@@ -8,6 +8,12 @@ import jakarta.persistence.Id;
 @Entity
 public class User extends Pessoa{
 	
+	public User(String nome, String cpf, String telefone, String email) {
+		super(nome, cpf, telefone, email);
+		this.id = id;
+		this.senha = senha;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

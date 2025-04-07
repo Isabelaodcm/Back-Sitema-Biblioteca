@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Cliente {
+public class Cliente extends Pessoa{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,5 +19,11 @@ public class Cliente {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	
+	public Cliente(String nome, String cpf, String telefone, String email) {
+		super(nome, cpf, telefone, email);
+		this.id = id; 
+		
+	}
+	
 }

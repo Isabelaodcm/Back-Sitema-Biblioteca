@@ -17,7 +17,7 @@ import com.libsystem.biblioteca.services.LivroService;
 @Service
 public class LivroServiceImpl implements LivroService {
 	
-	private final LivroMapper mapper = LivroMapper.INSTANCE;
+	private final LivroMapper mapper = LivroMapper.INSTANCE; //o 'final' indica que nao vai ser alterado
 	
 	@Autowired
 	private LivroRepository repository;
@@ -49,5 +49,23 @@ public class LivroServiceImpl implements LivroService {
 	public LivroDetalhadoDto create(Livro livro) {
 		Livro newLivro = repository.save(livro);
 		return mapper.paraDDto(newLivro);
+	}
+
+	@Override
+	public LivroDetalhadoDto update(@PathVariable Long id, Livro editarLivro) {
+		Livro livroEditado = repository.findById(id).get();
+		
+		livroEditado.setTitulo(editarLivro.getTitulo());
+		livroEditado.setAnoPublicacao(editarLivro.getAnoPublicacao());
+		livroEditado.setIsbn(editarLivro.getIsbn());
+		livroEditado.setEdicao(editarLivro.getEdicao());
+		livroEditado.setStatus(editarLivro.getStatus());
+		livroEditado.setObs(editarLivro.getObs());
+		livroEditado.setEstadoCons(editarLivro.getEstadoCons());
+		
+		
+		repository.save(livroEditado);
+		
+		return mapper.paraDDto(livroEditado);
 	}
 }

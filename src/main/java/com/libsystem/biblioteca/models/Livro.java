@@ -21,13 +21,29 @@ public class Livro {
 	private String obs;
 	private String estadoCons;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "autor_nome")
-//	private Autor autor;
+	@ManyToOne
+	@JoinColumn(name = "id_autor")
+	private Autor autor;
 
 //	@OneToMany
 //	@JoinColumn(name = "editora_nome")
 //	private Editora editora;
+	
+	public Livro(Long id, String titulo, String anoPublicacao, String isbn, Integer edicao, String status, String obs, String estadoCons) {
+		super();
+		this.id = id;
+		this.titulo = titulo;
+		this.anoPublicacao = anoPublicacao;
+		this.isbn = isbn;
+		this.edicao = edicao;
+		this.status = status;
+		this.obs = obs;
+		this.estadoCons = estadoCons;
+	}
+	
+	public Livro() {
+		
+	}
 
 	public Long getId() {  
 		return id;
@@ -93,13 +109,13 @@ public class Livro {
 		this.estadoCons = estadoCons;
 	}
 
-//	public Autor getAutor() {
-//		return autor;
-//	}
-//
-//	public void setAutor(Autor autor) {
-//		this.autor = autor;
-//	}
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public void setAutor(Autor autor) {
+		this.autor = autor;
+	}
 
 //	public Editora getEditora() {
 //		return editora;
@@ -108,6 +124,7 @@ public class Livro {
 //	public void setEditora(Editora editora) {
 //		this.editora = editora;
 //	}
+
 	
 	
 }

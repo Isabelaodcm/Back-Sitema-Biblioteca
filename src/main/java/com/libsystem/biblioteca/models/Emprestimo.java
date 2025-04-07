@@ -19,13 +19,13 @@ public class Emprestimo {
 	private LocalDate dataDev;
 	private String status;
 	
-//	@OneToOne
-//	@JoinColumn(name = "livro_id")
-//	private Livro livro;
-//	
-//	@ManyToOne
-//	@JoinColumn(name = "cliente_id")
-//	private Cliente cliente;
+	@OneToOne
+	@JoinColumn(name = "livro_id")
+	private Livro livro;
+	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;
 
 	public Long getId() {
 		return id;
@@ -59,21 +59,21 @@ public class Emprestimo {
 		this.status = status;
 	}
 
-//	public Livro getLivro() {
-//		return livro;
-//	}
-//
-//	public void setLivro(Livro livro) {
-//		this.livro = livro;
-//	}
-//
-//	public Cliente getCliente() {
-//		return cliente;
-//	}
-//
-//	public void setCliente(Cliente cliente) {
-//		this.cliente = cliente;
-//	}
+	public Livro getLivro() {
+		return livro;
+	}
+
+	public void setLivro(Livro livro) {
+		this.livro = livro;
+	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	
 
 }

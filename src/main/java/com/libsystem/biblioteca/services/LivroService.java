@@ -16,8 +16,7 @@ public interface LivroService {
 	LivroDetalhadoDto create(Livro livro);
 	String deleteById(@PathVariable Long id);
 	LivroDetalhadoDto detalhesLivro(@PathVariable Long id);
-//	Livro update(@PathVariable Long id, Livro livroEditado);
+	LivroDetalhadoDto update(@PathVariable Long id, Livro editarLivro);
 	
-
 }
 
