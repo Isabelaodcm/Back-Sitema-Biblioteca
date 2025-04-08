@@ -4,11 +4,12 @@ import java.time.LocalDate;
 
 import com.libsystem.biblioteca.models.Cliente;
 import com.libsystem.biblioteca.models.Emprestimo;
+import com.libsystem.biblioteca.models.StatusEmprestimo;
 
 public class EmprestimoDto {
 	private LocalDate dataEmp;
 	private LocalDate dataDev;
-	private String status;
+	private StatusEmprestimo status;
 	private Cliente cliente;
 	
 	public EmprestimoDto(Emprestimo emprestimo) {
@@ -23,7 +24,7 @@ public class EmprestimoDto {
 	public LocalDate getDataDev() {
 		return dataDev;
 	}
-	public String getStatus() {
+	public StatusEmprestimo getStatus() {
 		return status;
 	}
 	public Cliente getCliente() {

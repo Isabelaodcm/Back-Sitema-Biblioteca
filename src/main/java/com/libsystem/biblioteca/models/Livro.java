@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Livro {
@@ -25,9 +24,9 @@ public class Livro {
 	@JoinColumn(name = "id_autor")
 	private Autor autor;
 
-//	@OneToMany
-//	@JoinColumn(name = "editora_nome")
-//	private Editora editora;
+	@ManyToOne
+	@JoinColumn(name = "id_editora")
+	private Editora editora;
 	
 	public Livro(Long id, String titulo, String anoPublicacao, String isbn, Integer edicao, String status, String obs, String estadoCons) {
 		super();
@@ -117,13 +116,13 @@ public class Livro {
 		this.autor = autor;
 	}
 
-//	public Editora getEditora() {
-//		return editora;
-//	}
-//
-//	public void setEditora(Editora editora) {
-//		this.editora = editora;
-//	}
+	public Editora getEditora() {
+		return editora;
+	}
+
+	public void setEditora(Editora editora) {
+		this.editora = editora;
+	}
 
 	
 	

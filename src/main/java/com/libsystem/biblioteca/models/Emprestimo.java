@@ -17,7 +17,9 @@ public class Emprestimo {
 	private Long id;
 	private LocalDate dataEmp;
 	private LocalDate dataDev;
-	private String status;
+	
+	private StatusEmprestimo status;
+	
 	
 	@OneToOne
 	@JoinColumn(name = "livro_id")
@@ -51,11 +53,11 @@ public class Emprestimo {
 		this.dataDev = dataDev;
 	}
 
-	public String getStatus() {
+	public StatusEmprestimo getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(StatusEmprestimo status) {
 		this.status = status;
 	}
 
