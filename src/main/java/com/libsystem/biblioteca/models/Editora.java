@@ -18,7 +18,7 @@ public class Editora {
 	private String pais;
 	private String cep;
 	private String bairro; 
-	private Integer livrosCad;
+//	private Integer livrosCad;
 	
 	public Editora() {
 	}
@@ -73,12 +73,12 @@ public class Editora {
 	public void setBairro(String bairro) {
 		this.bairro = bairro;
 	}
-	public Integer getLivrosCad() {
-		return livrosCad;
-	}
-	public void setLivrosCad(Integer livrosCad) {
-		this.livrosCad = livrosCad;
-	}
+//	public Integer getLivrosCad() {
+//		return livrosCad;
+//	}
+//	public void setLivrosCad(Integer livrosCad) {
+//		this.livrosCad = livrosCad;
+//	}
 	
 	
 }

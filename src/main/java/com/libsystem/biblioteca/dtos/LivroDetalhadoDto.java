@@ -1,15 +1,17 @@
 package com.libsystem.biblioteca.dtos;
 
+import com.libsystem.biblioteca.models.EstadoCons;
 import com.libsystem.biblioteca.models.Livro;
+import com.libsystem.biblioteca.models.StatusLivro;
 
 public class LivroDetalhadoDto {
 	private String titulo;
 	private String anoPublicacao;
 	private String isbn;
 	private Integer edicao;
-	private String status;
+	private StatusLivro status;
 	private String obs;
-	private String estadoCons;
+	private EstadoCons estadoCons;
 	private AutorDto autor;
 	private EditoraDto editora;
 	
@@ -41,7 +43,7 @@ public class LivroDetalhadoDto {
 		return edicao;
 	}
 
-	public String getStatus() {
+	public StatusLivro getStatus() {
 		return status;
 	}
 
@@ -49,7 +51,7 @@ public class LivroDetalhadoDto {
 		return obs;
 	}
 
-	public String getEstadoCons() {
+	public EstadoCons getEstadoCons() {
 		return estadoCons;
 	}
 

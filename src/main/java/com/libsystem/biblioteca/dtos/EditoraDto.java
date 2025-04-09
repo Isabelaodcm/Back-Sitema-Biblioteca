@@ -6,13 +6,13 @@ public class EditoraDto {
 	private String nome; 
 	private String cidade;
 	private String pais;
-	private Integer livrosCad;
+//	private Integer livrosCad;
 	
 	public EditoraDto(Editora editora) {
 		this.nome = editora.getNome();
 		this.cidade = editora.getCidade();
 		this.pais = editora.getPais();
-		this.livrosCad = editora.getLivrosCad();
+//		this.livrosCad = editora.getLivrosCad();
 	}
 	
 	public String getNome() {
@@ -27,9 +27,9 @@ public class EditoraDto {
 		return pais;
 	}
 
-	public Integer getLivrosCad() {
-		return livrosCad;
-	}
-	
+//	public Integer getLivrosCad() {
+//		return livrosCad;
+//	}
+//	
 	
 }

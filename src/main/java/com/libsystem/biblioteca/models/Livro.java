@@ -16,9 +16,9 @@ public class Livro {
 	private String anoPublicacao;
 	private String isbn;
 	private Integer edicao;
-	private String status;
+	private StatusLivro status;
 	private String obs;
-	private String estadoCons;
+	private EstadoCons estadoCons;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_autor")
@@ -28,7 +28,7 @@ public class Livro {
 	@JoinColumn(name = "id_editora")
 	private Editora editora;
 	
-	public Livro(Long id, String titulo, String anoPublicacao, String isbn, Integer edicao, String status, String obs, String estadoCons) {
+	public Livro(Long id, String titulo, String anoPublicacao, String isbn, Integer edicao, StatusLivro status, String obs, EstadoCons estadoCons) {
 		super();
 		this.id = id;
 		this.titulo = titulo;
@@ -84,11 +84,11 @@ public class Livro {
 		this.edicao = edicao;
 	}
 
-	public String getStatus() {
+	public StatusLivro getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(StatusLivro status) {
 		this.status = status;
 	}
 
@@ -100,11 +100,11 @@ public class Livro {
 		this.obs = obs;
 	}
 
-	public String getEstadoCons() {
+	public EstadoCons getEstadoCons() {
 		return estadoCons;
 	}
 
-	public void setEstadoCons(String estadoCons) {
+	public void setEstadoCons(EstadoCons estadoCons) {
 		this.estadoCons = estadoCons;
 	}
 
