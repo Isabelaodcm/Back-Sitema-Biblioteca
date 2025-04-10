@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,12 +35,12 @@ public class AutorController {
 		return service.findById(id);
 	}
 	
-	@GetMapping(value = "/excluir-autor/{id}")
-	public String deleteById(@PathVariable Long id) {
+	@DeleteMapping(value = "/excluir-autor/{id}")
+	public String deleteById(@PathVariable String id) {
 		return service.deleteById(id);
 	}
 	
-	@GetMapping(value = "/editar/{id}")
+	@PutMapping(value = "/editar/{id}")
 	public ResponseEntity<Autor> update(@PathVariable Long id, @RequestBody Autor editarAutor) {
 		return ResponseEntity.ok(service.update(id, editarAutor));
 

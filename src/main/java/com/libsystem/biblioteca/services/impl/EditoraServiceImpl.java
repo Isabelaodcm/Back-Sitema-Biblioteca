@@ -23,9 +23,9 @@ public class EditoraServiceImpl implements EditoraService{
 	private EditoraRepository repository;
 	
 	@Override
-	public ResponseEntity<List<EditoraDto>> listarEditoras(){
+	public ResponseEntity<List<Editora>> listarEditoras(){
 		List<Editora> editoras = repository.findAll();
-		return ResponseEntity.ok(mapper.paraDto(editoras));
+		return ResponseEntity.ok(editoras);
 	}
 	
 	@Override 

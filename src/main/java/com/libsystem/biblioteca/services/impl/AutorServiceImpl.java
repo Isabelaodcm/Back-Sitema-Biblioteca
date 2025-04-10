@@ -30,8 +30,8 @@ public class AutorServiceImpl implements AutorService {
 	}
 	
 	@Override
-	public String deleteById(@PathVariable Long id) {
-		repository.deleteById(id);
+	public String deleteById(@PathVariable String id) {
+		repository.deleteById(Long.parseLong(id));
 		return "Autor excluído com sucesso.";
 	}
 	

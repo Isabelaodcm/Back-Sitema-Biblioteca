@@ -12,6 +12,11 @@ public class Cliente extends Pessoa{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	
+	public Cliente(){
+		
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -25,5 +30,6 @@ public class Cliente extends Pessoa{
 		this.id = id; 
 		
 	}
+
 	
 }

@@ -14,6 +14,10 @@ public abstract class Pessoa {
 	private String telefone;
 	private String email;
 	
+	public Pessoa() {
+		
+	}
+	
 	public String getNome() {
 		return nome;
 	}

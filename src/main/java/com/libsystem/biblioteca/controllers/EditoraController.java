@@ -25,7 +25,7 @@ public class EditoraController {
 	private EditoraServiceImpl service;
 	
 	@GetMapping(value = "/lista-editoras")
-	public ResponseEntity<List<EditoraDto>> listarEditoras(){
+	public ResponseEntity<List<Editora>> listarEditoras(){
 		return service.listarEditoras();
 	}
 	

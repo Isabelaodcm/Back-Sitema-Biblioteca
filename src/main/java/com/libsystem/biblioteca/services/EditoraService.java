@@ -10,7 +10,7 @@ import com.libsystem.biblioteca.models.Editora;
 
 public interface EditoraService {
 	
-	ResponseEntity<List<EditoraDto>> listarEditoras();
+	ResponseEntity<List<Editora>> listarEditoras();
 	EditoraDto findById(@PathVariable Long id);
 	Editora detalhesEditora(@PathVariable Long id);
 	String deleteById(@PathVariable Long id);
