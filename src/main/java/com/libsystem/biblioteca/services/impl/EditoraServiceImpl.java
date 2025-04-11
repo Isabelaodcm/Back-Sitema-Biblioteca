@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.libsystem.biblioteca.dtos.EditoraDto;
 import com.libsystem.biblioteca.mappers.EditoraMapper;
-import com.libsystem.biblioteca.models.Autor;
 import com.libsystem.biblioteca.models.Editora;
 import com.libsystem.biblioteca.repositories.EditoraRepository;
 import com.libsystem.biblioteca.services.EditoraService;

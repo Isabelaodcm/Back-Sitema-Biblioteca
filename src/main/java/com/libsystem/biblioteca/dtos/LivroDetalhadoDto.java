@@ -8,7 +8,7 @@ public class LivroDetalhadoDto {
 	private String titulo;
 	private String anoPublicacao;
 	private String isbn;
-	private Integer edicao;
+	private int edicao;
 	private StatusLivro status;
 	private String obs;
 	private EstadoCons estadoCons;
@@ -39,7 +39,7 @@ public class LivroDetalhadoDto {
 		return isbn;
 	}
 
-	public Integer getEdicao() {
+	public int getEdicao() {
 		return edicao;
 	}
 

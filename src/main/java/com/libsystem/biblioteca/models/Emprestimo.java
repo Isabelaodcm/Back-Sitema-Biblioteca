@@ -18,7 +18,7 @@ public class Emprestimo {
 	private LocalDate dataEmp;
 	private LocalDate dataDev;
 	
-	private StatusEmprestimo status;
+	private StatusEmprestimo status = StatusEmprestimo.PENDENTE;
 	
 	
 	@OneToOne

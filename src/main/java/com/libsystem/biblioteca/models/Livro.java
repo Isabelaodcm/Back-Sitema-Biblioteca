@@ -15,8 +15,8 @@ public class Livro {
 	private String titulo;
 	private String anoPublicacao;
 	private String isbn;
-	private Integer edicao;
-	private StatusLivro status;
+	private int edicao;
+	private StatusLivro status = StatusLivro.DISPONIVEL;
 	private String obs;
 	private EstadoCons estadoCons;
 	
@@ -76,11 +76,11 @@ public class Livro {
 		this.isbn = isbn;
 	}
 
-	public Integer getEdicao() {
+	public int getEdicao() {
 		return edicao;
 	}
 
-	public void setEdicao(Integer edicao) {
+	public void setEdicao(int edicao) {
 		this.edicao = edicao;
 	}
 

@@ -10,6 +10,7 @@ public class LivroDto {
 	private String anoPublicacao;
 	private StatusLivro status;
 	private EditoraDto editora;
+	private int edicao;
 	
 	public LivroDto(Livro livro) {
 		this.id = livro.getId();
@@ -18,7 +19,7 @@ public class LivroDto {
 		this.autor = new AutorDto(livro.getAutor());  // Convertendo Autor para AutorDto
         this.editora = new EditoraDto(livro.getEditora());
 		this.status = livro.getStatus();
-
+		this.edicao = livro.getEdicao();
 	}
 	
 	public String getTitulo() {
@@ -42,6 +43,10 @@ public class LivroDto {
 
 	public Long getId() {
 		return id;
+	}
+
+	public int getEdicao() {
+		return edicao;
 	}
 
 	
