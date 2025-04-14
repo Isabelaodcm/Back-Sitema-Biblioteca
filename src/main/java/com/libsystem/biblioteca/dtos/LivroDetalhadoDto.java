@@ -5,6 +5,7 @@ import com.libsystem.biblioteca.models.Livro;
 import com.libsystem.biblioteca.models.StatusLivro;
 
 public class LivroDetalhadoDto {
+	private Long id;
 	private String titulo;
 	private String anoPublicacao;
 	private String isbn;
@@ -16,15 +17,21 @@ public class LivroDetalhadoDto {
 	private EditoraDto editora;
 	
 	public LivroDetalhadoDto(Livro livro) {
+		this.id = livro.getId();
 		this.titulo = livro.getTitulo();
 		this.anoPublicacao = livro.getAnoPublicacao();
 		this.isbn = livro.getIsbn();
-//		this.autor = new AutorDto(livro.getAutor());  // Convertendo Autor para AutorDto
-//        this.editora = new EditoraDto(livro.getEditora()); // Convertendo Editora para EditoraDto
+		this.autor = new AutorDto(livro.getAutor());  // Convertendo Autor para AutorDto
+        this.editora = new EditoraDto(livro.getEditora()); // Convertendo Editora para EditoraDto
 		this.status = livro.getStatus();
 		this.edicao = livro.getEdicao();
 		this.obs = livro.getObs();
 		this.estadoCons = livro.getEstadoCons();
+	}
+
+	
+	public Long getId() {
+		return id;
 	}
 
 	public String getTitulo() {

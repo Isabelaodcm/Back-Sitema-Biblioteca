@@ -52,7 +52,7 @@ public class LivroServiceImpl implements LivroService {
 	}
 
 	@Override
-	public LivroDetalhadoDto update(@PathVariable Long id, Livro editarLivro) {
+	public Livro update(@PathVariable Long id, Livro editarLivro) {
 		Livro livroEditado = repository.findById(id).get();
 		
 		livroEditado.setTitulo(editarLivro.getTitulo());
@@ -63,9 +63,11 @@ public class LivroServiceImpl implements LivroService {
 		livroEditado.setObs(editarLivro.getObs());
 		livroEditado.setEstadoCons(editarLivro.getEstadoCons());
 		
+		livroEditado.setAutor(editarLivro.getAutor());
+		livroEditado.setEditora(editarLivro.getEditora());
 		
 		repository.save(livroEditado);
 		
-		return mapper.paraDDto(livroEditado);
+		return livroEditado;
 	}
 }

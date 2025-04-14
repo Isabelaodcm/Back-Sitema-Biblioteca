@@ -2,6 +2,7 @@ package com.libsystem.biblioteca.models;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,8 +26,9 @@ public class Emprestimo {
 	@JoinColumn(name = "livro_id")
 	private Livro livro;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "cliente_id")
+	 
 	private Cliente cliente;
 
 	public Long getId() {
