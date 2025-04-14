@@ -2,6 +2,8 @@ package com.libsystem.biblioteca.dtos;
 
 public class ClienteDto {
 	
+	private Long id;
+	
 //	@NotBlank(message = "O campo não pode estar vazio")
 	private String nome;
 	
@@ -33,6 +35,12 @@ public class ClienteDto {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	} 
 	
 	

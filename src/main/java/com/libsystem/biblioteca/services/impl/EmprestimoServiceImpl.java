@@ -7,8 +7,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.libsystem.biblioteca.models.Cliente;
 import com.libsystem.biblioteca.models.Emprestimo;
+import com.libsystem.biblioteca.models.Livro;
+import com.libsystem.biblioteca.repositories.ClienteRepository;
 import com.libsystem.biblioteca.repositories.EmprestimoRepository;
+import com.libsystem.biblioteca.repositories.LivroRepository;
 import com.libsystem.biblioteca.services.EmprestimoService;
 
 @Service
@@ -16,6 +20,12 @@ public class EmprestimoServiceImpl implements EmprestimoService{
 	
 	@Autowired
 	private EmprestimoRepository repository;
+	
+	@Autowired
+	private LivroRepository livroRepository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
 	
 	@Override
 	public ResponseEntity<List<Emprestimo>> listarEmprestimos(){
@@ -36,7 +46,16 @@ public class EmprestimoServiceImpl implements EmprestimoService{
 	
 	@Override
 	public Emprestimo create(Emprestimo emprestimo) {
-		Emprestimo newEmp = repository.save(emprestimo);
+		Livro livro = livroRepository.findById(emprestimo.getLivro().getId())
+		        .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+		
+		Cliente cliente = clienteRepository.findById(emprestimo.getCliente().getId())
+		        .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+		
+		emprestimo.setLivro(livro);
+	    emprestimo.setCliente(cliente);
+	    
+		Emprestimo newEmp = repository.saveAndFlush(emprestimo);
 		return newEmp;
 	}
 	

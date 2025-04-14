@@ -29,8 +29,8 @@ public class LivroServiceImpl implements LivroService {
 	}
 	
 	@Override
-	public LivroDto findById(@PathVariable Long id) {
-		return mapper.paraDto(repository.findById(id).get());
+	public Livro findById(@PathVariable Long id) {
+		return repository.findById(id).get();
 		
 	}
 	
