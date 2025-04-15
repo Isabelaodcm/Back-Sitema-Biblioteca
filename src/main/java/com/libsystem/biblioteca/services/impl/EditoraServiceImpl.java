@@ -16,7 +16,7 @@ import com.libsystem.biblioteca.services.EditoraService;
 @Service
 public class EditoraServiceImpl implements EditoraService{
 	
-	private final EditoraMapper mapper = EditoraMapper.INSTANCE;
+//	private final EditoraMapper mapper = EditoraMapper.INSTANCE;
 	
 	@Autowired
 	private EditoraRepository repository;
@@ -28,8 +28,9 @@ public class EditoraServiceImpl implements EditoraService{
 	}
 	
 	@Override 
-	public EditoraDto findById(@PathVariable Long id) {
-		EditoraDto editora  = mapper.paraDto(repository.findById(id).get());
+	public Editora findById(@PathVariable Long id) {
+//		EditoraDto editora  = mapper.paraDto(repository.findById(id).get());
+		Editora editora  = repository.findById(id).get();
 		return editora;
 	}
 	

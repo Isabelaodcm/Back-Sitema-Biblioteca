@@ -25,11 +25,11 @@ public class Cliente extends Pessoa{
 		this.id = id;
 	}
 	
-//	public Cliente(String nome, String cpf, String telefone, String email) {
-//		super(nome, cpf, telefone, email);
-//		this.id = id; 
-//		
-//	}
+	public Cliente(String nome, String cpf, String telefone, String email) {
+		super(nome, cpf, telefone, email);
+		this.id = id; 
+		
+	}
 
 	
 }

@@ -11,7 +11,7 @@ public class LivroDto {
 	private StatusLivro status;
 	private EditoraDto editora;
 	private int edicao;
-	
+
 	public LivroDto(Livro livro) {
 		this.id = livro.getId();
 		this.titulo = livro.getTitulo();

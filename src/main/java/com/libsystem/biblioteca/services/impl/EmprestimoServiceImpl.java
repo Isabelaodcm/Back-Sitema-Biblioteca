@@ -66,10 +66,18 @@ public class EmprestimoServiceImpl implements EmprestimoService{
 	public Emprestimo update(@PathVariable Long id, Emprestimo editarEmprestimo) {
 		Emprestimo empEditado = repository.findById(id).get();
 		
+		Livro livro = livroRepository.findById(editarEmprestimo.getLivro().getId())
+		        .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+		
+		Cliente cliente = clienteRepository.findById(editarEmprestimo.getCliente().getId())
+		        .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+		
 		empEditado.setDataEmp(editarEmprestimo.getDataEmp());
 		empEditado.setDataDev(editarEmprestimo.getDataDev());
 		empEditado.setStatus(editarEmprestimo.getStatus());
-		empEditado.setLivro(editarEmprestimo.getLivro());
+		
+		empEditado.setLivro(livro);
+		empEditado.setCliente(cliente);
 		
 		repository.save(empEditado);
 		

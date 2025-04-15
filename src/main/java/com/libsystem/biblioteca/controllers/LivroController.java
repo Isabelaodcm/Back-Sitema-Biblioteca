@@ -28,7 +28,7 @@ public class LivroController {
 	
 	
 	@GetMapping(value = "/lista-livros")
-	public ResponseEntity<List<LivroDto>> listaLivros(){
+	public ResponseEntity<List<LivroDetalhadoDto>> listaLivros(){
 		return service.listarLivros();
 	}
 		

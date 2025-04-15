@@ -8,9 +8,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.libsystem.biblioteca.dtos.LivroDetalhadoDto;
-import com.libsystem.biblioteca.dtos.LivroDto;
 import com.libsystem.biblioteca.mappers.LivroMapper;
+import com.libsystem.biblioteca.models.Autor;
+import com.libsystem.biblioteca.models.Editora;
 import com.libsystem.biblioteca.models.Livro;
+import com.libsystem.biblioteca.repositories.AutorRepository;
+import com.libsystem.biblioteca.repositories.EditoraRepository;
 import com.libsystem.biblioteca.repositories.LivroRepository;
 import com.libsystem.biblioteca.services.LivroService;
 
@@ -22,10 +25,16 @@ public class LivroServiceImpl implements LivroService {
 	@Autowired
 	private LivroRepository repository;
 	
+	@Autowired
+	private AutorRepository autorRepository;
+	
+	@Autowired
+	private EditoraRepository editoraRepository;
+	
 	@Override
-	public ResponseEntity<List<LivroDto>> listarLivros(){
+	public ResponseEntity<List<LivroDetalhadoDto>> listarLivros(){
 		List<Livro> livros = repository.findAll();
-		return ResponseEntity.ok(mapper.paraDto(livros));
+		return ResponseEntity.ok(mapper.paraDDto(livros));
 	}
 	
 	@Override
@@ -54,6 +63,11 @@ public class LivroServiceImpl implements LivroService {
 	@Override
 	public Livro update(@PathVariable Long id, Livro editarLivro) {
 		Livro livroEditado = repository.findById(id).get();
+		Autor autorLivro = autorRepository.findById(editarLivro.getAutor().getId()).orElseThrow(
+				() -> new RuntimeException("nao encotrnado...."));
+		
+		Editora editoraLivro = editoraRepository.findById(editarLivro.getEditora().getId()).orElseThrow(
+				() -> new RuntimeException("nao encotrnado...."));
 		
 		livroEditado.setTitulo(editarLivro.getTitulo());
 		livroEditado.setAnoPublicacao(editarLivro.getAnoPublicacao());
@@ -63,8 +77,8 @@ public class LivroServiceImpl implements LivroService {
 		livroEditado.setObs(editarLivro.getObs());
 		livroEditado.setEstadoCons(editarLivro.getEstadoCons());
 		
-		livroEditado.setAutor(editarLivro.getAutor());
-		livroEditado.setEditora(editarLivro.getEditora());
+		livroEditado.setAutor(autorLivro);
+		livroEditado.setEditora(editoraLivro);
 		
 		repository.save(livroEditado);
 		

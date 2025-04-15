@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,12 +40,14 @@ public class ClienteController {
 		return service.deleteById(id);
 	}
 	
-	@GetMapping(value = "/cadastrar")
-	public Cliente create(Cliente cliente) {
+	@CrossOrigin
+	@PostMapping(value = "/cadastrar")
+	public Cliente create(@RequestBody Cliente cliente) {
+		System.out.print(cliente);
 		return service.create(cliente);
 	}
 	
-	@GetMapping(value = "/editar")
+	@PutMapping(value = "/editar")
 	public ResponseEntity<Cliente> update(@PathVariable Long id, @RequestBody Cliente editarCliente) {
 		return ResponseEntity.ok(service.update(id, editarCliente));
 	}

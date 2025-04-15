@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.libsystem.biblioteca.dtos.EditoraDto;
 import com.libsystem.biblioteca.models.Editora;
 import com.libsystem.biblioteca.services.impl.EditoraServiceImpl;
 
@@ -30,7 +30,7 @@ public class EditoraController {
 	}
 	
 	@GetMapping(value = "/busca-editora/{id}")
-	public EditoraDto findById(@PathVariable Long id) {
+	public Editora findById(@PathVariable Long id) {
 		return service.findById(id);
 	}
 
@@ -50,7 +50,7 @@ public class EditoraController {
 		return service.create(editora);
 	}
 	
-	@GetMapping(value = "/editar/{id}")
+	@PutMapping(value = "/editar/{id}")
 	public ResponseEntity<Editora> update(@PathVariable Long id, @RequestBody Editora editarEditora) {
 		return ResponseEntity.ok(service.update(id, editarEditora));
 

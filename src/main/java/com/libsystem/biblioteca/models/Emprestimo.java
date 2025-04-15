@@ -26,9 +26,8 @@ public class Emprestimo {
 	@JoinColumn(name = "livro_id")
 	private Livro livro;
 	
-	@ManyToOne(cascade = CascadeType.MERGE)
+	@ManyToOne
 	@JoinColumn(name = "cliente_id")
-	 
 	private Cliente cliente;
 
 	public Long getId() {
@@ -79,5 +78,6 @@ public class Emprestimo {
 		this.cliente = cliente;
 	}
 	
+
 
 }

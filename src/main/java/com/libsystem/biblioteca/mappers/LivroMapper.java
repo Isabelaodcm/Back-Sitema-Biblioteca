@@ -18,6 +18,7 @@ public interface LivroMapper {
     Livro paraLivro(LivroDto livroDto);
 
     List<LivroDto> paraDto(List<Livro> livros);
+    List<LivroDetalhadoDto> paraDDto(List<Livro> livros);
     
     LivroDetalhadoDto paraDDto (Livro livro);
     Livro dParaLivro(LivroDetalhadoDto livroDetalhadoDto);

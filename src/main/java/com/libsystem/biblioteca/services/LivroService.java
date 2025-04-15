@@ -10,7 +10,7 @@ import com.libsystem.biblioteca.dtos.LivroDto;
 import com.libsystem.biblioteca.models.Livro;
 
 public interface LivroService {
-	ResponseEntity<List<LivroDto>> listarLivros();
+	ResponseEntity<List<LivroDetalhadoDto>> listarLivros();
 	Livro findById(@PathVariable Long id);
 	LivroDetalhadoDto create(Livro livro);
 	String deleteById(@PathVariable Long id);
