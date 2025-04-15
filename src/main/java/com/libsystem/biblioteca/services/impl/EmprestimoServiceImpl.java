@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.libsystem.biblioteca.models.Cliente;
 import com.libsystem.biblioteca.models.Emprestimo;
 import com.libsystem.biblioteca.models.Livro;
+import com.libsystem.biblioteca.models.StatusLivro;
 import com.libsystem.biblioteca.repositories.ClienteRepository;
 import com.libsystem.biblioteca.repositories.EmprestimoRepository;
 import com.libsystem.biblioteca.repositories.LivroRepository;
@@ -48,6 +49,8 @@ public class EmprestimoServiceImpl implements EmprestimoService{
 	public Emprestimo create(Emprestimo emprestimo) {
 		Livro livro = livroRepository.findById(emprestimo.getLivro().getId())
 		        .orElseThrow(() -> new RuntimeException("Livro não encontrado"));
+		
+		livro.setStatus(StatusLivro.INDISPONIVEL);
 		
 		Cliente cliente = clienteRepository.findById(emprestimo.getCliente().getId())
 		        .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
