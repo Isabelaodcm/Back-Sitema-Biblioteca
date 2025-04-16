@@ -9,6 +9,7 @@ public class AutorDto {
 	private String pais; 
 	private String anoNasc;
 	private String anoFalesc;
+	private Integer livrosCad;
 	
 	public AutorDto(Autor autor) {
 		this.id = autor.getId();
@@ -17,7 +18,14 @@ public class AutorDto {
 		this.pais = autor.getPais();
 		this.anoNasc = autor.getAnoNasc();
 		this.anoFalesc = autor.getAnoFalesc();
+//		this.livrosCad = autor.getLivrosCad();
 	}
+
+	
+	public Integer getLivrosCad() {
+		return livrosCad;
+	}
+
 
 	public String getNome() {
 		return nome;

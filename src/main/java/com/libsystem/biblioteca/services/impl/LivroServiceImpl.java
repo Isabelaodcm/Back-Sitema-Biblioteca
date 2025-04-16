@@ -56,7 +56,14 @@ public class LivroServiceImpl implements LivroService {
 	
 	@Override
 	public LivroDetalhadoDto create(Livro livro) {
+//		Autor autorLivro = autorRepository.findById(livro.getAutor().getId()).orElseThrow(
+//				() -> new RuntimeException("nao encotrnado...."));
+		
+//		autorLivro.setLivrosCad(autorLivro.getLivrosCad() + 1);
+//		autorRepository.save(autorLivro);
+		
 		Livro newLivro = repository.save(livro);
+		
 		return mapper.paraDDto(newLivro);
 	}
 

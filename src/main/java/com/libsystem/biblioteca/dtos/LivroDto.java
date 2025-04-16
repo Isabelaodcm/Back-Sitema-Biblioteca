@@ -10,7 +10,7 @@ public class LivroDto {
 	private String anoPublicacao;
 	private StatusLivro status;
 	private EditoraDto editora;
-	private int edicao;
+	private Integer edicao;
 
 	public LivroDto(Livro livro) {
 		this.id = livro.getId();

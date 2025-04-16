@@ -41,6 +41,14 @@ public class EmprestimoServiceImpl implements EmprestimoService{
 	
 	@Override
 	public String deleteById(@PathVariable Long id) {
+		Emprestimo emprestimo = repository.findById(id)
+				.orElseThrow(() -> new RuntimeException("Empréstimo não encontrado."));
+		
+		Livro livro = emprestimo.getLivro();
+		
+		livro.setStatus(StatusLivro.DISPONIVEL);
+		livroRepository.save(livro);
+		
 		repository.deleteById(id);
 		return "Empréstimo excluído com sucesso.";
 	}
