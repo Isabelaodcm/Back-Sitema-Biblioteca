@@ -54,8 +54,8 @@ public class EditoraServiceImpl implements EditoraService{
 	}
 	
 	@Override
-	public Editora update(@PathVariable Long id, Editora editoraEditada) {
-		Editora editEditora = repository.findById(id).get();
+	public Editora update(@PathVariable Long id, Editora editEditora) {
+		Editora editoraEditada = repository.findById(id).get();
 		
 		editoraEditada.setNome(editEditora.getNome());
 		editoraEditada.setRua(editEditora.getRua());
