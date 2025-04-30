@@ -36,6 +36,7 @@ public class AutorController {
 	}
 	
 	@DeleteMapping(value = "/excluir-autor/{id}")
+	@CrossOrigin
 	public String deleteById(@PathVariable String id) {
 		return service.deleteById(id);
 	}

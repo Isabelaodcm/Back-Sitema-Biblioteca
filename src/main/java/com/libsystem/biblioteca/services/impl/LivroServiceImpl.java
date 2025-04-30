@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.libsystem.biblioteca.dtos.LivroDetalhadoDto;
 import com.libsystem.biblioteca.mappers.LivroMapper;
@@ -90,5 +91,11 @@ public class LivroServiceImpl implements LivroService {
 		repository.save(livroEditado);
 		
 		return livroEditado;
+		
+	}
+	
+	@Override
+	public List<Livro> pesquisa(String titulo) {
+		return repository.buscarTitulo(titulo);
 	}
 }

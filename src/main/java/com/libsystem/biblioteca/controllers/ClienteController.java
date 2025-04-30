@@ -47,7 +47,7 @@ public class ClienteController {
 		return service.create(cliente);
 	}
 	
-	@PutMapping(value = "/editar")
+	@PutMapping(value = "/editar/{id}")
 	public ResponseEntity<Cliente> update(@PathVariable Long id, @RequestBody Cliente editarCliente) {
 		return ResponseEntity.ok(service.update(id, editarCliente));
 	}
