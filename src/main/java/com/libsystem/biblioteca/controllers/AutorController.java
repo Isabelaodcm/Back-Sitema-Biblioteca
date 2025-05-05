@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.libsystem.biblioteca.models.Autor;
@@ -50,6 +51,11 @@ public class AutorController {
 	@PostMapping(value = "/cadastrar")
 	public Autor create(@RequestBody Autor autor) {
 		return service.create(autor);
+	}
+	
+	@GetMapping(value = "/pesquisar")
+	public List<Autor> pesquisa(@RequestParam String nome){
+		return service.pesquisa(nome);
 	}
 
 }

@@ -13,5 +13,6 @@ public interface AutorService {
 	String deleteById(@PathVariable String id);
 	Autor create(Autor autor);
 	Autor update(@PathVariable Long id, Autor editarAutor);
+	List<Autor> pesquisa(String nome);
 	
 }

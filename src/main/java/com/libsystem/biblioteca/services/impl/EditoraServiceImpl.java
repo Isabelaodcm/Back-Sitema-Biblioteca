@@ -69,6 +69,9 @@ public class EditoraServiceImpl implements EditoraService{
 		return editoraEditada;
 	}
 	
-	
+	@Override
+	public List<Editora> pesquisa(String nome){
+		return repository.buscarEditora(nome);
+	}
 
 }

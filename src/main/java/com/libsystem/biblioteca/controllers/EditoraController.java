@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.libsystem.biblioteca.models.Editora;
@@ -55,5 +56,10 @@ public class EditoraController {
 	public ResponseEntity<Editora> update(@PathVariable Long id, @RequestBody Editora editarEditora) {
 		return ResponseEntity.ok(service.update(id, editarEditora));
 
+	}
+	
+	@GetMapping(value = "/pesquisar")
+	public List<Editora> pesquisa(@RequestParam String nome){
+		return service.pesquisa(nome);
 	}
 }

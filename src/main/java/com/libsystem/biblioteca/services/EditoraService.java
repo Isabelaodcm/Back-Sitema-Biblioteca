@@ -16,5 +16,6 @@ public interface EditoraService {
 	String deleteById(@PathVariable Long id);
 	Editora create(Editora editora);
 	Editora update(@PathVariable Long id, Editora editoraEditada);
+	List<Editora> pesquisa(String nome);
 	
 }

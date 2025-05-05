@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.libsystem.biblioteca.models.Cliente;
 import com.libsystem.biblioteca.models.Emprestimo;
 import com.libsystem.biblioteca.models.Livro;
+import com.libsystem.biblioteca.models.StatusEmprestimo;
 import com.libsystem.biblioteca.models.StatusLivro;
 import com.libsystem.biblioteca.repositories.ClienteRepository;
 import com.libsystem.biblioteca.repositories.EmprestimoRepository;
@@ -83,6 +84,12 @@ public class EmprestimoServiceImpl implements EmprestimoService{
 		empEditado.setDataEmp(editarEmprestimo.getDataEmp());
 		empEditado.setDataDev(editarEmprestimo.getDataDev());
 		empEditado.setStatus(editarEmprestimo.getStatus());
+		
+		if(empEditado.getStatus() == StatusEmprestimo.DEVOLVIDO) {
+			livro.setStatus(StatusLivro.DISPONIVEL);
+			livroRepository.save(livro); 
+			 
+		}
 		
 		empEditado.setLivro(livro);
 		empEditado.setCliente(cliente);

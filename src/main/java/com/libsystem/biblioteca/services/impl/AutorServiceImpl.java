@@ -55,5 +55,10 @@ public class AutorServiceImpl implements AutorService {
 		
 		return autorEditado;
 	}
+	
+	@Override
+	public List<Autor> pesquisa(String nome){
+		return repository.buscaAutor(nome);
+	}
 
 }
